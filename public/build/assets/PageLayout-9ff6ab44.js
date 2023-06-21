@@ -1,1 +1,0 @@
-import{_ as t,o as a,c as r,b as s,q as o,F as c}from"./app-16b48706.js";const n={},l={class:"py-8"},_={class:"prose lg:prose-xl"};function d(e,i){return a(),r(c,null,[s("header",l,[o(e.$slots,"header")]),s("section",_,[o(e.$slots,"section")])],64)}const f=t(n,[["render",d]]);export{f as P};
