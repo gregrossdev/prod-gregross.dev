@@ -16,7 +16,6 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "@notionhq/client": "^2.2.5",
         "@vitejs/plugin-vue": "^4.2.3",
         "@vueuse/core": "^10.1.2",
         "pinia": "^2.1.4",
