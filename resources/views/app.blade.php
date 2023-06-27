@@ -1,74 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
-    <meta
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        name="viewport"
-    />
-
-    <title> gregross.dev </title>
-
-    <meta property="og:title" content="Homepage | Atlas Template"/>
-
-    <meta property="og:locale" content="en_US"/>
-
-    <link
-        rel="canonical"
-        href="https://atlas.tailwindmade.com/"
-    />
-
-    <meta
-        property="og:url"
-        content="https://atlas.tailwindmade.com/"
-    />
-
-    <meta
-        name="description"
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    />
-
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png"/>
-
-    <meta property="og:site_name" content="Atlas Template"/>
-
-    <meta property="og:image" content="https://atlas.tailwindmade.com/assets/img/social.jpg"/>
-
-    <meta name="twitter:card" content="summary_large_image"/>
-
-    <meta name="twitter:site" content="@tailwindmade"/>
-
-    <link
-        crossorigin="crossorigin"
-        href="https://fonts.gstatic.com"
-        rel="preconnect"
-    />
-
-    <link
-        as="style"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="preload"
-    />
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-    />
-
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
     <link
         rel="stylesheet"
         href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
     />
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Scripts -->
+    @routes
+    @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
+    @inertiaHead
 </head>
-
-
-<body class="body-wrapper">
-<div id="app" class="app-container"></div>
-
+<body class="font-sans antialiased">
+<div class="app-container">
+    @inertia
+</div>
 </body>
 </html>

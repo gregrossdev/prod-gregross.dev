@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +16,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{vue_capture?}', function() {
-    return view('app');
-})->where('vue_capture', '[\/\w\.-]*');
+Route::get('/', function () {
+    return Inertia::render('HomeView');
+});
 
-//Route::get('/dbview', [\App\Http\Controllers\NotionController::class, 'dbview']);
+Route::get('/intro', function () {
+    return Inertia::render('IntroView');
+});
+
+Route::get('/uses', function () {
+    return Inertia::render('UsesView');
+});
+
+Route::get('/contact', function () {
+    return Inertia::render('ContactView');
+});
+
+Route::get('/blog', function () {
+    return Inertia::render('Blog/BlogView');
+});
+
+Route::get('/blog/post', function () {
+    return Inertia::render('Blog/BlogPostView');
+});
+
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
