@@ -40,10 +40,13 @@ Route::get('/blog/post', function () {
     return Inertia::render('Blog/BlogPostView');
 });
 
-
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('DashboardView');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/blog/create', function () {
+    return Inertia::render('Auth/Blog/CreatePostView');
+})->middleware(['auth', 'verified'])->name('create.post');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
