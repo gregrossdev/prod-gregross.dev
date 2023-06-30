@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/vue3';
 
 <template>
     <Link
-        class="block w-full px-4 py-2 text-left leading-5 focus:outline-none transition duration-150 ease-in-out"
+        class="block w-full px-4 py-2 text-left text-white leading-5 focus:outline-none transition duration-150 ease-in-out"
     >
         <slot />
     </Link>
