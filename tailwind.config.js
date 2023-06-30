@@ -142,23 +142,6 @@ module.exports = {
                         },
                     },
                 },
-                dark: {
-                    css: {
-                        color: theme("colors.white"),
-                        a: {
-                            color: theme("colors.secondary"),
-                            "&:hover": {
-                                color: theme("colors.green"),
-                            },
-                        },
-                        "h1, h2, h3, h4, h5, h6": {
-                            color: theme("colors.white"),
-                        },
-                        "ul > li::before": {
-                            backgroundColor: theme("colors.secondary"),
-                        },
-                    },
-                },
             }),
         },
     },

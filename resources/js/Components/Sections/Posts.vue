@@ -1,6 +1,4 @@
 <script setup>
-import PostItems from "@/Components/Posts/PostItems.vue";
-
 </script>
 
 
@@ -34,7 +32,7 @@ import PostItems from "@/Components/Posts/PostItems.vue";
 
     <section class="pt-8">
 
-      <PostItems/>
+      <slot name="posts" />
 
     </section>
 

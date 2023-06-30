@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Post;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,7 +19,9 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('HomeView');
+    return Inertia::render('HomeView', [
+        "posts" => Post::with('user:id,name')->latest()->get(),
+    ]);
 });
 
 Route::get('/intro', function () {
@@ -33,7 +37,9 @@ Route::get('/contact', function () {
 });
 
 Route::get('/blog', function () {
-    return Inertia::render('Blog/BlogView');
+    return Inertia::render('Blog/BlogView', [
+        "posts" => Post::with('user:id,name')->latest()->get(),
+    ]);
 });
 
 Route::get('/blog/post', function () {
@@ -43,6 +49,10 @@ Route::get('/blog/post', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('DashboardView');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::resource('posts', PostController::class)
+    ->only(['index', 'store', 'update', 'destroy'])
+    ->middleware(['auth', 'verified']);
 
 Route::get('/blog/create', function () {
     return Inertia::render('Auth/Blog/CreatePostView');

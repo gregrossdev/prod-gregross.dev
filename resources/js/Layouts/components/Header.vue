@@ -18,7 +18,7 @@ onClickOutside(mobileMenuRef, () => {
     <header>
         <nav class="rounded bg-[#EDF2F3] text-white py-6 ">
             <div
-                class="container mx-auto flex flex-wrap items-center justify-between"
+                class="container mx-auto flex md:flex-wrap items-center justify-between"
             >
                 <Link class="flex items-center"
                             href="/"
@@ -122,25 +122,22 @@ onClickOutside(mobileMenuRef, () => {
                             >
                         </li>
 
-                        <li>
-                            <i
-                                class="bx cursor-pointer text-3xl text-primary dark:text-white"
-                            ></i>
+                        <li class="group relative ml-auto">
+                            <div
+                                class="absolute left-0 bottom-0 z-20 h-0 w-full opacity-75 transition-all group-hover:h-2 group-hover:bg-yellow"
+                            ></div>
+                            <Link
+                                class="relative z-30 block px-2 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary "
+                                href="/login"
+                                @click="isMobileMenuOpen = false"
+                            >Login
+                            </Link
+                            >
                         </li>
-<!--                        <template v-if="!authStore.user">-->
-<!--                            <li class="group relative mr-6 mb-1">-->
-<!--                                <div-->
-<!--                                    class="absolute left-0 bottom-0 z-20 h-0 w-full opacity-75 transition-all group-hover:h-2 group-hover:bg-yellow"-->
-<!--                                ></div>-->
-<!--                                <Link-->
-<!--                                    class="relative z-30 block px-2 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary "-->
-<!--                                    href="/login"-->
-<!--                                    @click="isMobileMenuOpen = false"-->
-<!--                                >Login-->
-<!--                                </Link-->
-<!--                                >-->
-<!--                            </li>-->
 
+
+
+<!--                        <template v-if="!authStore.user">-->
 <!--                        </template>-->
 <!--                        <template v-else>-->
 <!--                            <li>-->
@@ -164,7 +161,6 @@ onClickOutside(mobileMenuRef, () => {
             </div>
         </nav>
 
-        <!--    Mobile -->
         <nav
             :class="isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : ''"
             class="pointer-events-none fixed inset-0 z-50 flex bg-black bg-opacity-80 opacity-0 transition-opacity lg:hidden"

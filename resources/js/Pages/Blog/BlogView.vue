@@ -1,6 +1,7 @@
 <script setup>
-import PostItems from "@/components/posts/PostItems.vue";
+import Post from '@/Components/Posts/Post.vue';
 import PageLayout from "@/layouts/PageLayout.vue";
+defineProps(['posts']);
 </script>
 
 <template>
@@ -23,7 +24,11 @@ import PageLayout from "@/layouts/PageLayout.vue";
       </div>
     </template>
     <template #section>
-      <PostItems/>
+        <Post
+            v-for="post in posts"
+            :key="post.id"
+            :post="post"
+        />
     </template>
   </PageLayout>
 </template>
