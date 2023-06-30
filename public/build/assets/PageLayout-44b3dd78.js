@@ -1,0 +1,1 @@
+import{_ as a}from"./GuestLayout-c7cd356e.js";import{i as t,q as r,m as _,p as e,E as o}from"./app-e590cbb8.js";const c={class:"py-8"},n={class:"prose lg:prose-xl"},d={__name:"PageLayout",setup(l){return(s,p)=>(t(),r(a,null,{default:_(()=>[e("header",c,[o(s.$slots,"header")]),e("section",n,[o(s.$slots,"section")])]),_:3}))}};export{d as _};
